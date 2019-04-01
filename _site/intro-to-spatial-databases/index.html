@@ -1,0 +1,573 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.13.0 by Michael Rose
+  Copyright 2013-2018 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>PostgreSQL spatial database set-up and remote server access - Data Science For Good</title>
+<meta name="description" content="Setting up your first database can be daunting - however it is likely one of the most useful and rewarding things you can do for your project. In this tutorial I will cover the basics of setting up a spatial database in PostgreSQL (PostGIS), and will walk you through how to do that on a server which runs on your local network. This way the database can be accessed by all members of that local network (e.g. your organisation).">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Data Science For Good">
+<meta property="og:title" content="PostgreSQL spatial database set-up and remote server access">
+<meta property="og:url" content="http://localhost:4000/intro-to-spatial-databases/">
+
+
+  <meta property="og:description" content="Setting up your first database can be daunting - however it is likely one of the most useful and rewarding things you can do for your project. In this tutorial I will cover the basics of setting up a spatial database in PostgreSQL (PostGIS), and will walk you through how to do that on a server which runs on your local network. This way the database can be accessed by all members of that local network (e.g. your organisation).">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2018-11-25T00:00:00+01:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/intro-to-spatial-databases/">
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Person",
+      "name": "Sam Kellerhals",
+      "url": "http://localhost:4000",
+      "sameAs": null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Data Science For Good Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if lte IE 9]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--posts">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <a class="site-title" href="/">Data Science For Good</a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/portfolio/" >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a href="/" >Posts</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name"></h3>
+    
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title">PostgreSQL spatial database set-up and remote server access</h1>
+    
+    <p>Setting up your first database can be daunting - however it is likely one of the most useful and rewarding things you can do for your project. In this tutorial I will cover the basics of setting up a spatial database in PostgreSQL (PostGIS), and will walk you through how to do that on a server which runs on your local network. This way the database can be accessed by all members of that local network (e.g. your organisation).</p>
+
+<h2 id="server-setup">Server setup</h2>
+
+<h3 id="basics">Basics</h3>
+
+<ol>
+  <li>Log into your server and download the latest version <a href="https://www.postgresql.org/">PostgreSQL</a>. After that is done open PgAdmin 4 and create a database - set the host of the database to <code class="highlighter-rouge">localhost</code>.<br />
+<br /></li>
+  <li>If you are interested in also storing spatial data in this database (e.g. geometry, coordinates, rasters) then you must initialise the <code class="highlighter-rouge">PostGIS</code> extension in the database by executing the following command in the PgAdmin 4 SQL editor <code class="highlighter-rouge">create extension postgis</code>. <br /><br /><strong>Tip:</strong> <em>To see all currently installed extensions open your database schema and go to extensions.</em>
+<br /></li>
+  <li>Now, we must find out the IP address of our server (unless you already know it), so that we will be able to connect to this database from another computer. To find the IP address, open a command prompt or terminal and execute the following commands based what operating system is installed on your server: <br />
+<strong>Windows:</strong> <code class="highlighter-rouge">ipconfig</code>
+<strong>Mac/Linux:</strong> <code class="highlighter-rouge">ifconfig</code> <br /></li>
+</ol>
+
+<p><strong>Note:</strong> <em>Write the IP address down as we will need it in the next step. It should look something like this <code class="highlighter-rouge">172.14.1.16</code></em></p>
+
+<h3 id="access-configuration">Access configuration</h3>
+
+<p>Before other computers can access your database, PostgreSQL needs to be configured to listen for connections from other IP addresses. To do this go to your PostgreSQL installation directory and open <code class="highlighter-rouge">postgresql.config</code> in a text-editor - once inside the file, set <code class="highlighter-rouge">listen_addresses = '*'</code>.</p>
+
+<p>Next, we need to define what specific IP addresses are allowed to connect and what security protocol those connections should follow. For this edit the <a href="https://www.postgresql.org/docs/devel/auth-pg-hba-conf.html"><code class="highlighter-rouge">pg_hba.config</code></a> file also located inside your PostgreSQL installation directory. Here add the following to the end of the document to allow connections from all IPs:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>host    all             all             0.0.0.0/0               md5
+host    all             all             ::/0                    md5
+</code></pre></div></div>
+
+<p>To allow connections from specific IP addresses only, add them like below (recommended unless your server is on a private network):</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>host    all             all             172.16.1.138/32         md5
+host    all             all             ::1/128                 md5
+</code></pre></div></div>
+
+<p><strong>note:</strong> <em><code class="highlighter-rouge">md5</code> asks for username and password verification, whereas setting to <code class="highlighter-rouge">trust</code> requires no credentials. These credentials are the same as the ones you can create in your database - for more on information, consult this tutorial on <a href="http://www.postgresqltutorial.com/postgresql-roles/">Role Management in PostgreSQL</a></em></p>
+
+<p>In order for the above changes to take effect, apart from saving the edited files you now also need to restart the PostgreSQL server. Various methods to achieve that are shown <a href="https://www.pokertracker.com/guides/PT4/troubleshooting/restart-the-postgresql-server">here.</a></p>
+
+<p>You should now be good to go!</p>
+
+<h2 id="establishing-a-connection">Establishing a connection</h2>
+
+<h3 id="pgadmin-4">PgAdmin 4</h3>
+
+<ol>
+  <li>Launch PgAdmin 4 and create a new server.</li>
+  <li>Give this server a name and in <code class="highlighter-rouge">host name/address</code> specify the IP address of the target machine.</li>
+  <li>Set the <code class="highlighter-rouge">port</code> to default 5432.</li>
+  <li>Enter username and password.</li>
+</ol>
+
+<h3 id="psql">PSQL</h3>
+
+<p>If using the <code class="highlighter-rouge">psql</code> shell that comes with the PostgreSQL installation when prompted enter the same information as above.</p>
+
+<p>If using the <code class="highlighter-rouge">psql</code> terminal utility you can access your database through the following command:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>psql <span class="nt">-U</span> &lt;enter username&gt; <span class="nt">-h</span> &lt;enter IP address of server&gt; <span class="nt">-d</span> &lt;enter database name&gt;
+</code></pre></div></div>
+
+<h3 id="qgis">QGIS</h3>
+
+<ol>
+  <li>Launch QGIS and create a new postGIS connection in the QGIS browser.</li>
+  <li>Give the connection a <code class="highlighter-rouge">name</code> of your choice.</li>
+  <li>For <code class="highlighter-rouge">host</code> specify the IP address of the server.</li>
+  <li>Set the <code class="highlighter-rouge">port</code> to default 5432.</li>
+  <li>Type the name of the database you wish to connect to.</li>
+  <li>Open basic authentication options and enter the username and password for the database.</li>
+  <li>Test your connection.</li>
+  <li>Once successful, press OK and all data is now available to you in the QGIS browser.</li>
+</ol>
+
+<h3 id="disabling-the-firewall">Disabling the firewall</h3>
+
+<p>Finally if you are still having some issues connecting to your database it may be that there is a firewall installed on your server that is blocking incoming connections to port 5432. In order to fix this, you must thus open port 5432 and allow incoming connections from other machines.</p>
+
+<p><strong>Opening port 5432 on Windows:</strong></p>
+
+<p>Go to: <code class="highlighter-rouge">Control Panel / Windows Defender Firewall / Incoming Connections / Create New Rule</code></p>
+
+<p><strong>Then</strong></p>
+
+<ol>
+  <li>Give the rule a name</li>
+  <li>Allow all incoming connections</li>
+  <li>Use <code class="highlighter-rouge">TCP</code> protocol</li>
+  <li>Specify port 5432</li>
+  <li>Save rule</li>
+</ol>
+
+<p>For other operating systems the process will be very similar to the one above. For more information on how to open ports on Mac OSX see this <a href="https://www.macworld.co.uk/how-to/mac-software/how-open-specific-ports-in-os-x-1010-firewall-3616405/">article</a>.</p>
+
+<h2 id="uploading-data">Uploading data</h2>
+
+<p>Now that you’ve connected to the database there are various ways to upload your data.</p>
+
+<h3 id="qgis-1">QGIS</h3>
+
+<ol>
+  <li>Launch QGIS and upload data to the browser.</li>
+  <li>To upload data to server open database manager.</li>
+  <li>Select a server under the <code class="highlighter-rouge">postGIS</code> menu and click on <code class="highlighter-rouge">import layer/file</code>.</li>
+  <li>Select your data, enter table name (and other options if desired) and click ok.</li>
+</ol>
+
+<h3 id="psql-1">PSQL</h3>
+
+<p>Vector and raster data can also be uploaded via the <code class="highlighter-rouge">psql</code> shell.</p>
+
+<h4 id="shp2pgsql-for-vector-data"><code class="highlighter-rouge">shp2pgsql</code> for vector data</h4>
+
+<p>To create a new table using a shapefile, execute the following command (alternatively if you wish to append to an existing table add the <code class="highlighter-rouge">-a</code> option).</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># upload a shapefile</span>
+shp2pgsql <span class="nt">-a</span> <span class="nt">-s</span> &lt;enter srid&gt; <span class="nt">-I</span> &lt;enter full file path&gt; &lt;enter desired table name&gt; | psql <span class="nt">-h</span> &lt;enter host&gt; <span class="nt">-U</span> &lt;enter username&gt; <span class="nt">-p</span> &lt;enter port&gt; <span class="nt">-d</span> &lt;enter database name&gt;
+</code></pre></div></div>
+
+<p>The above command generates an SQL script that inserts our shapefile’s data into our selected table. This SQL script is then piped straight into the <code class="highlighter-rouge">psql</code> utility where we specify the username and database. This completes the uploading of our data into the selected table within the PostgreSQL database.</p>
+
+<h4 id="raster2pgsql-for-raster-data"><code class="highlighter-rouge">raster2pgsql</code> for raster data</h4>
+
+<p>To create a new table using a raster, execute the following command (alternatively if you wish to append to an existing table add the <code class="highlighter-rouge">-a</code> option).</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># upload a raster</span>
+raster2pgsql <span class="nt">-s</span> &lt;enter srid&gt; <span class="nt">-d</span> <span class="nt">-C</span> <span class="nt">-I</span> <span class="nt">-M</span> <span class="nt">-Y</span> <span class="nt">-l</span> 2,4,8,16,32,64,128,256 &lt;enter full file path&gt; <span class="nt">-t</span> auto &lt;enter desired table name&gt; | psql <span class="nt">-h</span> &lt;enter host&gt; <span class="nt">-U</span> &lt;enter username&gt; <span class="nt">-p</span> &lt;enter port&gt; <span class="nt">-d</span> &lt;enter database name&gt;
+</code></pre></div></div>
+
+<p><strong>note:</strong> This example exhibits various additional options which are used to create <a href="http://edndoc.esri.com/arcsde/9.2/concepts/rasters/basicprinciples/pyramids.htm">raster pyramids</a> which is used to increase the upload speed of large rasters. For more details see this <a href="https://duncanjg.wordpress.com/2012/11/20/the-basics-of-postgis-raster/">article.</a></p>
+
+<h2 id="backing-up-your-data">Backing up your data</h2>
+
+<p>Finally you can create a backup of your entire database easly from within PgAdmin 4. Here right-clicked your database and select the <code class="highlighter-rouge">backup</code> option. This will generate an SQL script containing the entire database. To then upload the database on another server simply enter pgAdmin 4, create a new server, right-click and select restore. Now select the SQL file from earlier and the database will be regenerated in this location.</p>
+
+
+<ul class="taxonomy__index">
+  
+  
+    <li>
+      <a href="#2019">
+        <strong>2019</strong> <span class="taxonomy__count">1</span>
+      </a>
+    </li>
+  
+    <li>
+      <a href="#2018">
+        <strong>2018</strong> <span class="taxonomy__count">2</span>
+      </a>
+    </li>
+  
+</ul>
+
+
+
+  <section id="2019" class="taxonomy__section">
+    <h2 class="archive__subtitle">2019</h2>
+    <div class="entries-list">
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/intro-machine-learning/" rel="permalink">Introduction to machine learning in R
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  7 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">What is Machine Learning?
+Today machine learning is everywhere. From the content delivered to you on your Facebook newsfeed to the spam emails being filtered...</p>
+  </article>
+</div>
+      
+    </div>
+    <a href="#page-title" class="back-to-top">Back to top &uarr;</a>
+  </section>
+
+  <section id="2018" class="taxonomy__section">
+    <h2 class="archive__subtitle">2018</h2>
+    <div class="entries-list">
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/qgis-intro-to-3d-models/" rel="permalink">Generating a 3D city model in QGIS
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  5 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">QGIS is an excellent open-source spatial analysis tool that packs a real punch! Not only can you access a host of spatial algorithms to analyse your data, bu...</p>
+  </article>
+</div>
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/intro-to-spatial-databases/" rel="permalink">PostgreSQL spatial database set-up and remote server access
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  5 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Setting up your first database can be daunting - however it is likely one of the most useful and rewarding things you can do for your project. In this tutori...</p>
+  </article>
+</div>
+      
+    </div>
+    <a href="#page-title" class="back-to-top">Back to top &uarr;</a>
+  </section>
+
+
+  </div>
+</div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><input type="text" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+    <div id="results" class="results"></div></div>
+      </div>
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/samkellerhals" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2019 Sam Kellerhals. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.5.0/js/all.js" integrity="sha384-GqVMZRt5Gn7tB9D9q7ONtcp4gtHIUEW/yG7h98J7IpE3kpi+srfFyyB/04OV6pG0" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/intro-to-spatial-databases/";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "/postgres-server-intro"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://https-samkellerhals-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+  </body>
+</html>

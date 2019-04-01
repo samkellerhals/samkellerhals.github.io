@@ -1,0 +1,687 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.13.0 by Michael Rose
+  Copyright 2013-2018 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Introduction to machine learning in R - Data Science For Good</title>
+<meta name="description" content="What is Machine Learning?Today machine learning is everywhere. From the content delivered to you on your Facebook newsfeed to the spam emails being filtered out of your emails, we live in an increasingly data driven society.">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Data Science For Good">
+<meta property="og:title" content="Introduction to machine learning in R">
+<meta property="og:url" content="http://localhost:4000/intro-machine-learning/">
+
+
+  <meta property="og:description" content="What is Machine Learning?Today machine learning is everywhere. From the content delivered to you on your Facebook newsfeed to the spam emails being filtered out of your emails, we live in an increasingly data driven society.">
+
+
+
+
+
+
+
+  <meta property="article:published_time" content="2019-01-14T00:00:00+01:00">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="http://localhost:4000/intro-machine-learning/">
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Person",
+      "name": "Sam Kellerhals",
+      "url": "http://localhost:4000",
+      "sameAs": null
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Data Science For Good Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="/assets/css/main.css">
+
+<!--[if lte IE 9]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use https://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+
+  </head>
+
+  <body class="layout--posts">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <a class="site-title" href="/">Data Science For Good</a>
+        <ul class="visible-links"><li class="masthead__menu-item">
+              <a href="/portfolio/" >Projects</a>
+            </li><li class="masthead__menu-item">
+              <a href="/" >Posts</a>
+            </li></ul>
+        
+        <button class="search__toggle" type="button">
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+
+    <div class="initial-content">
+      
+
+
+
+<div id="main" role="main">
+  
+  <div class="sidebar sticky">
+  
+
+
+<div itemscope itemtype="http://schema.org/Person">
+
+  
+
+  <div class="author__content">
+    
+      <h3 class="author__name" itemprop="name"></h3>
+    
+    
+  </div>
+
+  <div class="author__urls-wrapper">
+    <button class="btn btn--inverse">Follow</button>
+    <ul class="author__urls social-icons">
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      
+
+      <!--
+  <li>
+    <a href="http://link-to-whatever-social-network.com/user/" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fas fa-fw" aria-hidden="true"></i> Custom Social Profile Link
+    </a>
+  </li>
+-->
+    </ul>
+  </div>
+</div>
+
+  
+  </div>
+
+
+  <div class="archive">
+    
+      <h1 id="page-title" class="page__title">Introduction to machine learning in R</h1>
+    
+    <h2 id="what-is-machine-learning">What is Machine Learning?</h2>
+<p>Today machine learning is everywhere. From the content delivered to you on your Facebook newsfeed to the spam emails being filtered out of your emails, we live in an increasingly data driven society.</p>
+
+<p>A widely quoted, more formal definition of machine learning is:</p>
+
+<h3 id="a-computer-program-is-said-to-learn-from-experience-e-with-respect-to-some-class-of-tasks-t-and-performance-measure-p-if-its-performance-at-tasks-in-t-as-measured-by-p-improves-with-experience-e">“A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P if its performance at tasks in T, as measured by P, improves with experience E.”</h3>
+
+<p>In simple terms, machine Learning is the science of developing and making use of specialised statistical learning algorithms that produce a predictive model based on information gathered from input data. This is closely related to computational statistics and therefore is far from any wizardry, rather it is based on established methodologies that also come with their flaws. It is therefore important to understand the implications of using off-the-shelf machine learning algorithms when building predictive models to aid knowledge discovery and decision making.</p>
+
+<h3 id="the-k-nearest-neighbours-algorithm-k-nn">The k-nearest neighbours algorithm (<code class="highlighter-rouge">K-nn</code>)</h3>
+
+<p>In this tutorial you will be introduced to a simple and well-established supervised classification algorithm, which we will implement in <code class="highlighter-rouge">R</code>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Main machine learning domains</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="https://en.wikipedia.org/wiki/Unsupervised_learning">Unsupervised learning</a></td>
+      <td>Inferring a function that describes the structure of “unlabeled” data (i.e. data that has not been classified or categorized).</td>
+    </tr>
+    <tr>
+      <td><a href="https://en.wikipedia.org/wiki/Supervised_learning">Supervised learning</a></td>
+      <td>Learning a function that maps an input to an output based on example input-output pairs.</td>
+    </tr>
+    <tr>
+      <td><a href="https://en.wikipedia.org/wiki/Deep_learning">Deep learning algorithms</a></td>
+      <td>Part of a broader family of machine learning methods based on learning data representations, as opposed to task-specific algorithms. Learning can be supervised, semi-supervised or unsupervised</td>
+    </tr>
+    <tr>
+      <td><a href="https://en.wikipedia.org/wiki/Reinforcement_learning">Reinforcement learning</a></td>
+      <td>An area of machine learning concerned with how software agents ought to take actions in an environment so as to maximize some notion of cumulative reward.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><code class="highlighter-rouge">K-nn</code> is an example of a supervised learning method, which means we need to first feed it data so it is able to make a classification based on that data (this is called the training phase). Upon training the algorithm on the data we provided, we can test our model on an unseen dataset (where we know what class each observation belongs to), and can then see how successful our model is at predicting the existing classes. This process of first building or selecting a classifier, training it and subsequently testing it is very widespread across the machine learning field and is what you will be doing today.</p>
+
+<h3 id="under-the-hood">Under the hood</h3>
+
+<p><code class="highlighter-rouge">K-nn</code> is a non-parametric technique that stores all available cases and classifies new cases based on a similiarty measure (distance function). Therefore when classifying an unseen dataset using a trained <code class="highlighter-rouge">K-nn</code> algorithm, it looks through the training data and finds the <strong>k</strong> training examples that are closest to the new example. It then assigns a class label to the new example based on a majority vote between those <strong>k</strong> training examples. This means if <strong>k</strong> is equal to 1, the class label will be assigned based on the nearest neighbour. However if K is equal to 3, the algorithm will select the three closest data points to each case and classify it based on a majority vote based on the classes that those three adjacent points hold.</p>
+
+<center><img src="https://cambridgecoding.files.wordpress.com/2016/01/knn2.jpg" alt="Img" style="width: 800px;" /></center>
+<center>Diagram source: <a href="https://cambridgecoding.wordpress.com" target="_blank">Cambridge Coding</a></center>
+
+<p>You can see that the selection of <strong>k</strong> is quite important, as is the selection of your training data, because this is all your predictive model will be based on.
+Regarding <strong>k</strong>, generally in binary cases it is best to pick an odd K value to avoid ties between neigbours. Slightly higher <strong>k</strong> values can also act to reduce noise in datasets. However it is best to experiment with different <strong>k</strong> values and use <a href="https://genomicsclass.github.io/book/pages/crossvalidation.html">cross validation techniques</a> to find the best value for your specific case.</p>
+
+<h2 id="getting-started">Getting started</h2>
+
+<p>Today we will use the following packages, go ahead and install them if you haven’t aready, then load them.</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Example of installing a package</span><span class="w">
+</span><span class="n">install.packages</span><span class="p">(</span><span class="s1">'ggplot2'</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Loading required packages for this tutorial</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">ggplot2</span><span class="p">)</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">dplyr</span><span class="p">)</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">class</span><span class="p">)</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">gridExtra</span><span class="p">)</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">gmodels</span><span class="p">)</span><span class="w">
+
+</span><span class="n">devtools</span><span class="o">::</span><span class="n">install_github</span><span class="p">(</span><span class="s1">'cttobin/ggthemr'</span><span class="p">)</span><span class="w">  
+</span><span class="c1"># This package is just for setting the colour palette, optional</span><span class="w">
+</span><span class="n">library</span><span class="p">(</span><span class="n">ggthemr</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<h3 id="loading-our-data">Loading our data</h3>
+
+<p>For this tutorial we will be using the built-in Iris Machine Learning dataset. In order to start learning something from our data, it is first important that we familiarise ourselves with it first.</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Loading iris dataset</span><span class="w">
+</span><span class="n">iris.data</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">iris</span><span class="w">
+
+</span><span class="c1"># Viewing iris dataset structure and attributes</span><span class="w">
+</span><span class="n">str</span><span class="p">(</span><span class="n">iris.data</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<p>From this we can see that this dataset contains 150 observations describing plant structural traits such as Sepal Length and Petal Width of the Iris genus across three different species.</p>
+
+<h3 id="data-visualisation">Data visualisation</h3>
+
+<p>We can also visualise our data to understand whether there are any apparent trends. Often exploring our data this way will yield an even better understanding of any underlying relationships we may want to explore further using Machine Learning algorithms such as the k-nn.</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Set a colour palette</span><span class="w">
+</span><span class="n">ggthemr</span><span class="p">(</span><span class="s2">"light"</span><span class="p">)</span><span class="w">  </span><span class="c1"># Optional</span><span class="w">
+
+</span><span class="c1"># Scatter plot visualising petal width and length grouped by species</span><span class="w">
+</span><span class="p">(</span><span class="n">scatter</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">ggplot</span><span class="p">(</span><span class="n">iris.data</span><span class="p">,</span><span class="w"> </span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Petal.Width</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Petal.Length</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Species</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">geom_point</span><span class="p">(</span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">,</span><span class="w"> </span><span class="n">alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.6</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">theme_classic</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">theme</span><span class="p">(</span><span class="n">legend.position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">0.2</span><span class="p">,</span><span class="w"> </span><span class="m">0.8</span><span class="p">)))</span><span class="w">
+
+</span><span class="c1"># Boxplot visualising variation in petal width between species</span><span class="w">
+</span><span class="p">(</span><span class="n">boxplot</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">ggplot</span><span class="p">(</span><span class="n">iris.data</span><span class="p">,</span><span class="w"> </span><span class="n">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Species</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Petal.Width</span><span class="p">,</span><span class="w"> </span><span class="n">fill</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Species</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">geom_boxplot</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">theme_classic</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="w">
+  </span><span class="n">theme</span><span class="p">(</span><span class="n">legend.position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">0.2</span><span class="p">,</span><span class="w"> </span><span class="m">0.8</span><span class="p">)))</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Note that putting your entire ggplot code in brackets () creates the graph and then shows it in the plot viewer. If you don’t have the brackets, you’ve only created the object, but haven’t visualized it. You would then have to call the object such that it will be displayed by just typing <code class="highlighter-rouge">barplot</code> after you’ve created the “barplot” object.</p>
+
+<p><img src="/assets/images/iris_plot1.png" alt="" /><br />
+<img src="/assets/images/iris_plot2.png" alt="" /></p>
+
+<p>From the above plots we see a visual correlation between plant traits. We can also see that there is some clustering within species with traits varying greatly between the three iris species. Now that we know that there is a clear difference in structural traits between species we could ask the following question:</p>
+
+<p><a name="train"></a></p>
+<h2 id="train-your-algorithm">Train your algorithm</h2>
+
+<h3 id="could-we-predict-what-species-iris-plants-belong-to-based-on-structural-trait-data-alone">Could we predict what species iris plants belong to based on structural trait data alone?</h3>
+
+<p>The goal of this tutorial will be to answer this question by building a predictive model and assessing its performance. To do so we will take a random sample of our data which we will use as training data, and another sample which will be used to test our model. These final predictions can then be compared to our original data so we can assess our results and see how accurate our model is.</p>
+
+<h2 id="building-our-k-nn-classifier">Building our k-nn classifier</h2>
+
+<h3 id="data-normalisation-and-trainingtest-set-generation">Data normalisation and training/test-set generation</h3>
+
+<p>The scales of individual variables may vary with a given dataset. For example one variable may have values ranging from 0 - 1 while the other ranges from 0 - 1000. Therefore some scaling/normalisation is often useful, espescially with the knn algorithm which is quite sensitive to different intervals across variables given that it employs a distance function when searching for ‘nearest-neighbours’.</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Building a normalisation function</span><span class="w">
+</span><span class="n">normalise</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="k">function</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="n">num</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nf">min</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w">
+  </span><span class="n">denom</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">max</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nf">min</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="w">
+  </span><span class="n">return</span><span class="w"> </span><span class="p">(</span><span class="n">num</span><span class="o">/</span><span class="n">denom</span><span class="p">)</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>For further understanding why feature normalisation is useful see <a href="http://www.uta.fi/sis/tie/tl/index/Datamining4.pdf">this lecture</a> and/or a very good <a href="(https://stats.stackexchange.com/a/287439)">answer</a> on this topic on StackOverflow. Now we normalise all the continous data columns in the iris dataset by applying our function to the iris data.</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">iris.norm</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">as.data.frame</span><span class="p">(</span><span class="n">lapply</span><span class="p">(</span><span class="n">iris</span><span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">],</span><span class="w"> </span><span class="n">normalise</span><span class="p">))</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Now that our data is normalised, we are going to randomly generate our training and test samples and their respective labels/classes.</p>
+
+<p>This is done using the <code class="highlighter-rouge">sample</code> function which generates a random sample of the specified size from the data set or elements. Also note that before calling <code class="highlighter-rouge">sample</code> we also call the <code class="highlighter-rouge">set.seed</code> function. This ensures that we always generate the same random data sample, as otherwise each time we would run this code a completely new random sequence would be generated. More information on that <a href="http://www.datasciencemadesimple.com/sample-function-in-r/">here</a>.</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Generating seed</span><span class="w">
+</span><span class="n">set.seed</span><span class="p">(</span><span class="m">1234</span><span class="p">)</span><span class="w">
+
+</span><span class="c1"># Randomly generating our training and test sampels with a respective ratio of 2/3 and 1/3</span><span class="w">
+</span><span class="n">datasample</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">sample</span><span class="p">(</span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="n">nrow</span><span class="p">(</span><span class="n">iris.norm</span><span class="p">),</span><span class="w"> </span><span class="n">replace</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">TRUE</span><span class="p">,</span><span class="w"> </span><span class="n">prob</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">0.67</span><span class="p">,</span><span class="w"> </span><span class="m">0.33</span><span class="p">))</span><span class="w">
+
+</span><span class="c1"># Generate training set</span><span class="w">
+</span><span class="n">iris.training</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">iris.norm</span><span class="p">[</span><span class="n">datasample</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">]</span><span class="w">
+
+</span><span class="c1"># Generate test set</span><span class="w">
+</span><span class="n">iris.test</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">iris.norm</span><span class="p">[</span><span class="n">datasample</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="o">:</span><span class="m">4</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<p>The next step is to generate our training and test labels. Beware however, we now need to use our original (not-normalised) dataset that also includes our class labels (column 5), while in the previous step we were just interested in our continous variables (columns 1-4). If this is not clear view all datasets again before proceeding.</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Generate training labels</span><span class="w">
+</span><span class="n">irisTraining.labels</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">iris</span><span class="p">[</span><span class="n">datasample</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">1</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">]</span><span class="w">
+
+</span><span class="c1"># Generate test labels</span><span class="w">
+</span><span class="n">irisTest.labels</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">iris</span><span class="p">[</span><span class="n">datasample</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<p>It’s now time to build our classifier! For this we will use the <code class="highlighter-rouge">knn</code> function from the <code class="highlighter-rouge">class</code> package. We will pass the function the following parameters:</p>
+
+<ul>
+  <li>Our normalised training dataset</li>
+  <li>Our normalised test dataset</li>
+  <li>Our original training labels</li>
+  <li>A value for K</li>
+</ul>
+
+<p>Note that we also select a value for <strong>k</strong>, which in this case is <strong>3</strong>. By chosing an odd value we avoid a tie between the two classes during the algorithm’s majority voting process.</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Building our knn classifier</span><span class="w">
+</span><span class="n">iris.knn</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">knn</span><span class="p">(</span><span class="n">train</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iris.training</span><span class="p">,</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iris.test</span><span class="p">,</span><span class="w"> </span><span class="n">cl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">irisTraining.labels</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">3</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<p><a name="test"></a></p>
+<h2 id="assess-your-model">Assess your model</h2>
+
+<p>Next, we need to evaluate the performance of our model. To do this we want to find out if the classes our algorithm predicts based on the training data accurately predict the species classes in our original iris dataset. For this we compare the original class labels to the predictions made by our algorithm.</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># creating a dataframe from known (true) test labels</span><span class="w">
+</span><span class="n">test.labels</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">data.frame</span><span class="p">(</span><span class="n">irisTest.labels</span><span class="p">)</span><span class="w">
+
+</span><span class="c1"># combining predicted and known species classes</span><span class="w">
+</span><span class="n">class.comparison</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">data.frame</span><span class="p">(</span><span class="n">iris.knn</span><span class="p">,</span><span class="w"> </span><span class="n">test.labels</span><span class="p">)</span><span class="w">
+
+</span><span class="c1"># giving appropriate column names</span><span class="w">
+</span><span class="nf">names</span><span class="p">(</span><span class="n">class.comparison</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"Predicted Species"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Observed Species"</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Let’s have a look at how our model did by inspecting the <code class="highlighter-rouge">class.comparison</code> table to see if our predicted species align with our observed species.</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># inspecting our results table</span><span class="w">
+</span><span class="n">class.comparison</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Finally, we can also evaluate the model using a cross-tabulation or so called contingency table. These are very useful when we wish to understand what correlations exist between different categorical variables. In this case we will be able to tell what classes our model predicted and how those predicted classes compare to the actual iris classes.</p>
+
+<div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">CrossTable</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">irisTest.labels</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iris.knn</span><span class="p">,</span><span class="w"> </span><span class="n">prop.chisq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">)</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                | iris.knn
+irisTest.labels |     setosa | versicolor |  virginica |  Row Total |
+----------------|------------|------------|------------|------------|
+         setosa |         12 |          0 |          0 |         12 |
+                |      1.000 |      0.000 |      0.000 |      0.300 |
+                |      1.000 |      0.000 |      0.000 |            |
+                |      0.300 |      0.000 |      0.000 |            |
+----------------|------------|------------|------------|------------|
+     versicolor |          0 |         12 |          0 |         12 |
+                |      0.000 |      1.000 |      0.000 |      0.300 |
+                |      0.000 |      0.857 |      0.000 |            |
+                |      0.000 |      0.300 |      0.000 |            |
+----------------|------------|------------|------------|------------|
+      virginica |          0 |          2 |         14 |         16 |
+                |      0.000 |      0.125 |      0.875 |      0.400 |
+                |      0.000 |      0.143 |      1.000 |            |
+                |      0.000 |      0.050 |      0.350 |            |
+----------------|------------|------------|------------|------------|
+   Column Total |         12 |         14 |         14 |         40 |
+                |      0.300 |      0.350 |      0.350 |            |
+----------------|------------|------------|------------|------------|
+</code></pre></div></div>
+<p>To evaluate our algorithm’s performance we can check if there are any discrepancies between our <code class="highlighter-rouge">iris.knn</code> model predictions and the actual <code class="highlighter-rouge">irisTest.labels</code>. To do this you can first check the total number of predicted classes per category in the last row under column total.</p>
+
+<p>These can then be compared against the actual classes on the right under row total. Our knn model predicted 12 setosa, 14 versicolor and 14 virginica. However when comparing this to our actual data there were 12 setosa, 12 versicolor and 16 virginca species in our test dataset.</p>
+
+<p>Overall we can see that our algorithm was able to almost predict all species classes correctly, except for a case where two samples where falsely classified as versicolor when in fact they belonged to virginica. To improve the model you could now experiment with using different <code class="highlighter-rouge">k</code> values to see if this impacts your model results in any way.</p>
+
+<p>Finally now that your model is trained you could go ahead and try to implement your algorithm on the entire iris dataset to see how effective it is!</p>
+
+<h3 id="summary-and-next-steps">Summary and Next steps</h3>
+
+<p>In this tutorial we have now covered the following:</p>
+
+<ul>
+  <li>the very basics of machine learning in <code class="highlighter-rouge">R</code></li>
+  <li>implementing a k-nearest neighbour classification algorithm</li>
+  <li>building our own training and test datasets</li>
+  <li>testing and evaluating our knn algorithm using cross-tabulation</li>
+</ul>
+
+<p>However there is still a whole world to explore. For those interested in learning more have a look at this <a href="https://daviddalpiaz.github.io/r4sl/index.html">freely available book</a> on machine learning in R.</p>
+
+
+<ul class="taxonomy__index">
+  
+  
+    <li>
+      <a href="#2019">
+        <strong>2019</strong> <span class="taxonomy__count">1</span>
+      </a>
+    </li>
+  
+    <li>
+      <a href="#2018">
+        <strong>2018</strong> <span class="taxonomy__count">2</span>
+      </a>
+    </li>
+  
+</ul>
+
+
+
+  <section id="2019" class="taxonomy__section">
+    <h2 class="archive__subtitle">2019</h2>
+    <div class="entries-list">
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/intro-machine-learning/" rel="permalink">Introduction to machine learning in R
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  10 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">What is Machine Learning?
+Today machine learning is everywhere. From the content delivered to you on your Facebook newsfeed to the spam emails being filtered...</p>
+  </article>
+</div>
+      
+    </div>
+    <a href="#page-title" class="back-to-top">Back to top &uarr;</a>
+  </section>
+
+  <section id="2018" class="taxonomy__section">
+    <h2 class="archive__subtitle">2018</h2>
+    <div class="entries-list">
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/qgis-intro-to-3d-models/" rel="permalink">Generating a 3D city model in QGIS
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  5 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">QGIS is an excellent open-source spatial analysis tool that packs a real punch! Not only can you access a host of spatial algorithms to analyse your data, bu...</p>
+  </article>
+</div>
+      
+        
+
+
+
+<div class="list__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="/intro-to-spatial-databases/" rel="permalink">PostgreSQL spatial database set-up and remote server access
+</a>
+      
+    </h2>
+    
+      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  5 minute read
+</p>
+    
+    <p class="archive__item-excerpt" itemprop="description">Setting up your first database can be daunting - however it is likely one of the most useful and rewarding things you can do for your project. In this tutori...</p>
+  </article>
+</div>
+      
+    </div>
+    <a href="#page-title" class="back-to-top">Back to top &uarr;</a>
+  </section>
+
+
+  </div>
+</div>
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><input type="text" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+    <div id="results" class="results"></div></div>
+      </div>
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+      <li><strong>Follow:</strong></li>
+    
+
+    
+      
+        
+      
+        
+      
+        
+          <li><a href="https://github.com/samkellerhals" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+        
+      
+        
+      
+        
+      
+        
+      
+    
+
+    <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2019 Sam Kellerhals. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="/assets/js/main.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.5.0/js/all.js" integrity="sha384-GqVMZRt5Gn7tB9D9q7ONtcp4gtHIUEW/yG7h98J7IpE3kpi+srfFyyB/04OV6pG0" crossorigin="anonymous"></script>
+
+
+
+
+<script src="/assets/js/lunr/lunr.min.js"></script>
+<script src="/assets/js/lunr/lunr-store.js"></script>
+<script src="/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://localhost:4000/intro-machine-learning/";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "/intro-machine-learning"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://https-samkellerhals-github-io.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+  </body>
+</html>
