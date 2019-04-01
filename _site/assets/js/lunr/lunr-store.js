@@ -1,5 +1,5 @@
 var store = [{
-        "title": "Foo Bar Identity",
+        "title": "Projects",
         "excerpt":"    Projects           Urban Energy Planning Web Application           A WebGIS platform to visualise energy infrastructure and       building data.Built using LeafletJS,       ThreeJS, PostgreSQL.                 Buildings Data Dashboard           A data dashboard to query and statistically analyse a municipal building stock.     Built using Shiny and R.       ","categories": [],
         "tags": [],
         "url": "http://localhost:4000/portfolio/",
