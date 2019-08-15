@@ -1,4 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.5">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-04-01T17:34:17+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Data Science For Good</title><subtitle>Coding for Good.</subtitle><author><name>Sam Kellerhals</name><email>hello@gooddatascience.com</email></author><entry><title type="html">Introduction to machine learning in R</title><link href="http://localhost:4000/intro-machine-learning/" rel="alternate" type="text/html" title="Introduction to machine learning in R" /><published>2019-01-14T00:00:00+01:00</published><updated>2019-01-14T00:00:00+01:00</updated><id>http://localhost:4000/intro-machine-learning</id><content type="html" xml:base="http://localhost:4000/intro-machine-learning/">&lt;h2 id=&quot;what-is-machine-learning&quot;&gt;What is Machine Learning?&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+<generator uri="http://jekyllrb.com" version="3.8.5">Jekyll</generator>
+<link href="https://samkellerhals.github.io//feed.xml" rel="self" type="application/atom+xml" />
+<link href="https://samkellerhals.github.io//" rel="alternate" type="text/html" />
+<updated>2019-08-15T22:44:29+02:00</updated>
+<id>https://samkellerhals.github.io//</id>
+<title>Sam Kellerhals</title>
+<subtitle>Coding for Good.</subtitle>
+<author>
+<name>Sam Kellerhals</name>
+<email>hello@gooddatascience.com</email>
+</author>
+<entry>
+<title>Introduction to machine learning in R</title>
+<link href="https://samkellerhals.github.io//intro-machine-learning/" rel="alternate" type="text/html" title="Introduction to machine learning in R" />
+<published>2019-01-14T00:00:00+01:00</published>
+<updated>2019-01-14T00:00:00+01:00</updated>
+<id>https://samkellerhals.github.io//intro-machine-learning</id>
+<content type="html" xml:base="https://samkellerhals.github.io//intro-machine-learning/">&lt;h2 id=&quot;what-is-machine-learning&quot;&gt;What is Machine Learning?&lt;/h2&gt;
 &lt;p&gt;Today machine learning is everywhere. From the content delivered to you on your Facebook newsfeed to the spam emails being filtered out of your emails, we live in an increasingly data driven society.&lt;/p&gt;
 
 &lt;p&gt;A widely quoted, more formal definition of machine learning is:&lt;/p&gt;
@@ -244,7 +263,20 @@ irisTest.labels |     setosa | versicolor |  virginica |  Row Total |
   &lt;li&gt;testing and evaluating our knn algorithm using cross-tabulation&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;However there is still a whole world to explore. For those interested in learning more have a look at this &lt;a href=&quot;https://daviddalpiaz.github.io/r4sl/index.html&quot;&gt;freely available book&lt;/a&gt; on machine learning in R.&lt;/p&gt;</content><author><name>Samuel Kellerhals</name></author><summary type="html">What is Machine Learning? Today machine learning is everywhere. From the content delivered to you on your Facebook newsfeed to the spam emails being filtered out of your emails, we live in an increasingly data driven society.</summary></entry><entry><title type="html">Generating a 3D city model in QGIS</title><link href="http://localhost:4000/qgis-intro-to-3d-models/" rel="alternate" type="text/html" title="Generating a 3D city model in QGIS" /><published>2018-12-02T00:00:00+01:00</published><updated>2018-12-02T00:00:00+01:00</updated><id>http://localhost:4000/3d-building-visualisation</id><content type="html" xml:base="http://localhost:4000/qgis-intro-to-3d-models/">&lt;p&gt;&lt;a href=&quot;https://www.qgis.org/de/site/&quot;&gt;QGIS&lt;/a&gt; is an excellent open-source spatial analysis tool that packs a real punch! Not only can you access a host of spatial algorithms to analyse your data, but you can now also start embarking into the exciting world of 3D data visualisation!&lt;/p&gt;
+&lt;p&gt;However there is still a whole world to explore. For those interested in learning more have a look at this &lt;a href=&quot;https://daviddalpiaz.github.io/r4sl/index.html&quot;&gt;freely available book&lt;/a&gt; on machine learning in R.&lt;/p&gt;
+</content>
+<author>
+<name>Samuel Kellerhals</name>
+</author>
+<summary>What is Machine Learning?Today machine learning is everywhere. From the content delivered to you on your Facebook newsfeed to the spam emails being filtered out of your emails, we live in an increasingly data driven society.</summary>
+</entry>
+<entry>
+<title>Generating a 3D city model in QGIS</title>
+<link href="https://samkellerhals.github.io//qgis-intro-to-3d-models/" rel="alternate" type="text/html" title="Generating a 3D city model in QGIS" />
+<published>2018-12-02T00:00:00+01:00</published>
+<updated>2018-12-02T00:00:00+01:00</updated>
+<id>https://samkellerhals.github.io//3d-building-visualisation</id>
+<content type="html" xml:base="https://samkellerhals.github.io//qgis-intro-to-3d-models/">&lt;p&gt;&lt;a href=&quot;https://www.qgis.org/de/site/&quot;&gt;QGIS&lt;/a&gt; is an excellent open-source spatial analysis tool that packs a real punch! Not only can you access a host of spatial algorithms to analyse your data, but you can now also start embarking into the exciting world of 3D data visualisation!&lt;/p&gt;
 
 &lt;h2 id=&quot;qgis2threejs---essential-3d-geovisualisation&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;QGIS2ThreeJs&lt;/code&gt; - essential 3D geovisualisation&lt;/h2&gt;
 
@@ -480,7 +512,20 @@ URL: https://mt1.google.com/vt/lyrs=s&amp;amp;x={x}&amp;amp;y={y}&amp;amp;z={z}
 
 &lt;p&gt;&lt;img src=&quot;/assets/gif/3d-vis-final.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;View a similarly constructed 3D visualisation &lt;a href=&quot;https://samkellerhals.github.io/ecc_scripts/hwb_3dvis.html&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;</content><author><name>Samuel Kellerhals</name></author><summary type="html">QGIS is an excellent open-source spatial analysis tool that packs a real punch! Not only can you access a host of spatial algorithms to analyse your data, but you can now also start embarking into the exciting world of 3D data visualisation!</summary></entry><entry><title type="html">PostgreSQL spatial database set-up and remote server access</title><link href="http://localhost:4000/intro-to-spatial-databases/" rel="alternate" type="text/html" title="PostgreSQL spatial database set-up and remote server access" /><published>2018-11-25T00:00:00+01:00</published><updated>2018-11-25T00:00:00+01:00</updated><id>http://localhost:4000/postgres-server-intro</id><content type="html" xml:base="http://localhost:4000/intro-to-spatial-databases/">&lt;p&gt;Setting up your first database can be daunting - however it is likely one of the most useful and rewarding things you can do for your project. In this tutorial I will cover the basics of setting up a spatial database in PostgreSQL (PostGIS), and will walk you through how to do that on a server which runs on your local network. This way the database can be accessed by all members of that local network (e.g. your organisation).&lt;/p&gt;
+&lt;p&gt;View a similarly constructed 3D visualisation &lt;a href=&quot;https://samkellerhals.github.io/ecc_scripts/hwb_3dvis.html&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+</content>
+<author>
+<name>Samuel Kellerhals</name>
+</author>
+<summary>QGIS is an excellent open-source spatial analysis tool that packs a real punch! Not only can you access a host of spatial algorithms to analyse your data, but you can now also start embarking into the exciting world of 3D data visualisation!</summary>
+</entry>
+<entry>
+<title>PostgreSQL spatial database set-up and remote server access</title>
+<link href="https://samkellerhals.github.io//intro-to-spatial-databases/" rel="alternate" type="text/html" title="PostgreSQL spatial database set-up and remote server access" />
+<published>2018-11-25T00:00:00+01:00</published>
+<updated>2018-11-25T00:00:00+01:00</updated>
+<id>https://samkellerhals.github.io//postgres-server-intro</id>
+<content type="html" xml:base="https://samkellerhals.github.io//intro-to-spatial-databases/">&lt;p&gt;Setting up your first database can be daunting - however it is likely one of the most useful and rewarding things you can do for your project. In this tutorial I will cover the basics of setting up a spatial database in PostgreSQL (PostGIS), and will walk you through how to do that on a server which runs on your local network. This way the database can be accessed by all members of that local network (e.g. your organisation).&lt;/p&gt;
 
 &lt;h2 id=&quot;server-setup&quot;&gt;Server setup&lt;/h2&gt;
 
@@ -612,4 +657,11 @@ raster2pgsql &lt;span class=&quot;nt&quot;&gt;-s&lt;/span&gt; &amp;lt;enter srid
 
 &lt;h2 id=&quot;backing-up-your-data&quot;&gt;Backing up your data&lt;/h2&gt;
 
-&lt;p&gt;Finally you can create a backup of your entire database easly from within PgAdmin 4. Here right-clicked your database and select the &lt;code class=&quot;highlighter-rouge&quot;&gt;backup&lt;/code&gt; option. This will generate an SQL script containing the entire database. To then upload the database on another server simply enter pgAdmin 4, create a new server, right-click and select restore. Now select the SQL file from earlier and the database will be regenerated in this location.&lt;/p&gt;</content><author><name>Samuel Kellerhals</name></author><summary type="html">Setting up your first database can be daunting - however it is likely one of the most useful and rewarding things you can do for your project. In this tutorial I will cover the basics of setting up a spatial database in PostgreSQL (PostGIS), and will walk you through how to do that on a server which runs on your local network. This way the database can be accessed by all members of that local network (e.g. your organisation).</summary></entry></feed>
+&lt;p&gt;Finally you can create a backup of your entire database easly from within PgAdmin 4. Here right-clicked your database and select the &lt;code class=&quot;highlighter-rouge&quot;&gt;backup&lt;/code&gt; option. This will generate an SQL script containing the entire database. To then upload the database on another server simply enter pgAdmin 4, create a new server, right-click and select restore. Now select the SQL file from earlier and the database will be regenerated in this location.&lt;/p&gt;
+</content>
+<author>
+<name>Samuel Kellerhals</name>
+</author>
+<summary>Setting up your first database can be daunting - however it is likely one of the most useful and rewarding things you can do for your project. In this tutorial I will cover the basics of setting up a spatial database in PostgreSQL (PostGIS), and will walk you through how to do that on a server which runs on your local network. This way the database can be accessed by all members of that local network (e.g. your organisation).</summary>
+</entry>
+</feed>
