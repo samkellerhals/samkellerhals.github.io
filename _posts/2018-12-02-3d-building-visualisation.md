@@ -1,8 +1,7 @@
 ---
 title: Generating a 3D city model in QGIS
-author: Samuel Kellerhals
 date: December 02, 2018
-layout: posts
+layout: single
 permalink: /qgis-intro-to-3d-models/
 ---
 

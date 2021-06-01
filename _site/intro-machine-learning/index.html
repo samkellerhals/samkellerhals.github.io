@@ -9,16 +9,16 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Introduction to machine learning in R - Data Science For Good</title>
+<!-- begin _includes/seo.html --><title>Introduction to machine learning in R -</title>
 <meta name="description" content="What is Machine Learning?Today machine learning is everywhere. From the content delivered to you on your Facebook newsfeed to the spam emails being filtered out of your emails, we live in an increasingly data driven society.">
 
 
 
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
-<meta property="og:site_name" content="Data Science For Good">
+<meta property="og:site_name" content="">
 <meta property="og:title" content="Introduction to machine learning in R">
-<meta property="og:url" content="https://samkellerhals.github.io//intro-machine-learning/">
+<meta property="og:url" content="http://localhost:4000/intro-machine-learning/">
 
 
   <meta property="og:description" content="What is Machine Learning?Today machine learning is everywhere. From the content delivered to you on your Facebook newsfeed to the spam emails being filtered out of your emails, we live in an increasingly data driven society.">
@@ -29,7 +29,7 @@
 
 
 
-  <meta property="article:published_time" content="2019-01-14T00:00:00+01:00">
+  <meta property="article:published_time" content="2019-11-25T00:00:00+01:00">
 
 
 
@@ -40,7 +40,7 @@
   
 
 
-<link rel="canonical" href="https://samkellerhals.github.io//intro-machine-learning/">
+<link rel="canonical" href="http://localhost:4000/intro-machine-learning/">
 
 
 
@@ -52,8 +52,8 @@
     {
       "@context": "http://schema.org",
       "@type": "Person",
-      "name": "Sam Kellerhals",
-      "url": "https://samkellerhals.github.io/",
+      "name": "Samuel Kellerhals",
+      "url": "http://localhost:4000",
       "sameAs": null
     }
   </script>
@@ -67,7 +67,7 @@
 <!-- end _includes/seo.html -->
 
 
-<link href="/feed.xml" type="application/atom+xml" rel="alternate" title="Data Science For Good Feed">
+<link href="/feed.xml" type="application/atom+xml" rel="alternate" title=" Feed">
 
 <!-- http://t.co/dKP3o1e -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -104,7 +104,7 @@
 
   </head>
 
-  <body class="layout--posts">
+  <body class="layout--single wide">
 
     <!--[if lt IE 9]>
 <div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
@@ -114,7 +114,7 @@
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
-        <a class="site-title" href="/">Data Science For Good</a>
+        <a class="site-title" href="/"></a>
         <ul class="visible-links"><li class="masthead__menu-item">
               <a href="/portfolio/" >Projects</a>
             </li><li class="masthead__menu-item">
@@ -152,11 +152,23 @@
 <div itemscope itemtype="http://schema.org/Person">
 
   
+    <div class="author__avatar">
+      
+
+      
+        <img src="/assets/images/sam_avatar.png" alt="Samuel Kellerhals" itemprop="image">
+      
+    </div>
+  
 
   <div class="author__content">
     
-      <h3 class="author__name" itemprop="name"></h3>
+      <h3 class="author__name" itemprop="name">Samuel Kellerhals</h3>
     
+    
+      <p class="author__bio" itemprop="description">
+        Software Engineer and Cleantech Enthusiast
+      </p>
     
   </div>
 
@@ -164,7 +176,17 @@
     <button class="btn btn--inverse">Follow</button>
     <ul class="author__urls social-icons">
       
+        <li itemprop="homeLocation" itemscope itemtype="http://schema.org/Place">
+          <i class="fas fa-fw fa-map-marker-alt" aria-hidden="true"></i> <span itemprop="name">Amsterdam, Netherlands</span>
+        </li>
+      
 
+      
+        
+          
+            <li><a href="https://www.linkedin.com/in/samuel-kellerhals/" rel="nofollow noopener noreferrer"><i class="fas fa-fw fa-envelope-square" aria-hidden="true"></i> Linkedin</a></li>
+          
+        
       
 
       
@@ -232,22 +254,78 @@
   </div>
 
 
-  <div class="archive">
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Introduction to machine learning in R">
+    <meta itemprop="description" content="What is Machine Learning?Today machine learning is everywhere. From the content delivered to you on your Facebook newsfeed to the spam emails being filtered out of your emails, we live in an increasingly data driven society.">
+    <meta itemprop="datePublished" content="November 25, 2019">
     
-      <h1 id="page-title" class="page__title">Introduction to machine learning in R</h1>
-    
-    <h2 id="what-is-machine-learning">What is Machine Learning?</h2>
+
+    <div class="page__inner-wrap">
+      
+        <header>
+          <h1 id="page-title" class="page__title" itemprop="headline">Introduction to machine learning in R
+</h1>
+          
+            <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
+
+
+
+
+  10 minute read
+</p>
+          
+        </header>
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right sticky">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-file-alt"></i> Table of contents</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#what-is-machine-learning">What is Machine Learning?</a>
+    <ul>
+      <li><a href="#the-k-nearest-neighbours-algorithm-k-nn">The k-nearest neighbours algorithm (K-nn)</a></li>
+      <li><a href="#under-the-hood">Under the hood</a></li>
+    </ul>
+  </li>
+  <li><a href="#getting-started">Getting started</a>
+    <ul>
+      <li><a href="#loading-our-data">Loading our data</a></li>
+      <li><a href="#data-visualisation">Data visualisation</a></li>
+    </ul>
+  </li>
+  <li><a href="#train-your-algorithm">Train your algorithm</a>
+    <ul>
+      <li><a href="#could-we-predict-what-species-iris-plants-belong-to-based-on-structural-trait-data-alone">Could we predict what species iris plants belong to based on structural trait data alone?</a></li>
+    </ul>
+  </li>
+  <li><a href="#building-our-k-nn-classifier">Building our k-nn classifier</a>
+    <ul>
+      <li><a href="#data-normalisation-and-trainingtest-set-generation">Data normalisation and training/test-set generation</a></li>
+    </ul>
+  </li>
+  <li><a href="#assess-your-model">Assess your model</a>
+    <ul>
+      <li><a href="#summary-and-next-steps">Summary and Next steps</a></li>
+    </ul>
+  </li>
+</ul>
+            </nav>
+          </aside>
+        
+        <h2 id="what-is-machine-learning">What is Machine Learning?</h2>
 <p>Today machine learning is everywhere. From the content delivered to you on your Facebook newsfeed to the spam emails being filtered out of your emails, we live in an increasingly data driven society.</p>
 
 <p>A widely quoted, more formal definition of machine learning is:</p>
 
-<h3 id="a-computer-program-is-said-to-learn-from-experience-e-with-respect-to-some-class-of-tasks-t-and-performance-measure-p-if-its-performance-at-tasks-in-t-as-measured-by-p-improves-with-experience-e">“A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P if its performance at tasks in T, as measured by P, improves with experience E.”</h3>
+<p><strong>“A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P if its performance at tasks in T, as measured by P, improves with experience E.”</strong></p>
 
 <p>In simple terms, machine Learning is the science of developing and making use of specialised statistical learning algorithms that produce a predictive model based on information gathered from input data. This is closely related to computational statistics and therefore is far from any wizardry, rather it is based on established methodologies that also come with their flaws. It is therefore important to understand the implications of using off-the-shelf machine learning algorithms when building predictive models to aid knowledge discovery and decision making.</p>
 
-<h3 id="the-k-nearest-neighbours-algorithm-k-nn">The k-nearest neighbours algorithm (<code class="highlighter-rouge">K-nn</code>)</h3>
+<h3 id="the-k-nearest-neighbours-algorithm-k-nn">The k-nearest neighbours algorithm (<code class="language-plaintext highlighter-rouge">K-nn</code>)</h3>
 
-<p>In this tutorial you will be introduced to a simple and well-established supervised classification algorithm, which we will implement in <code class="highlighter-rouge">R</code>.</p>
+<p>In this tutorial you will be introduced to a simple and well-established supervised classification algorithm, which we will implement in <code class="language-plaintext highlighter-rouge">R</code>.</p>
 
 <table>
   <thead>
@@ -276,11 +354,11 @@
   </tbody>
 </table>
 
-<p><code class="highlighter-rouge">K-nn</code> is an example of a supervised learning method, which means we need to first feed it data so it is able to make a classification based on that data (this is called the training phase). Upon training the algorithm on the data we provided, we can test our model on an unseen dataset (where we know what class each observation belongs to), and can then see how successful our model is at predicting the existing classes. This process of first building or selecting a classifier, training it and subsequently testing it is very widespread across the machine learning field and is what you will be doing today.</p>
+<p><code class="language-plaintext highlighter-rouge">K-nn</code> is an example of a supervised learning method, which means we need to first feed it data so it is able to make a classification based on that data (this is called the training phase). Upon training the algorithm on the data we provided, we can test our model on an unseen dataset (where we know what class each observation belongs to), and can then see how successful our model is at predicting the existing classes. This process of first building or selecting a classifier, training it and subsequently testing it is very widespread across the machine learning field and is what you will be doing today.</p>
 
 <h3 id="under-the-hood">Under the hood</h3>
 
-<p><code class="highlighter-rouge">K-nn</code> is a non-parametric technique that stores all available cases and classifies new cases based on a similiarty measure (distance function). Therefore when classifying an unseen dataset using a trained <code class="highlighter-rouge">K-nn</code> algorithm, it looks through the training data and finds the <strong>k</strong> training examples that are closest to the new example. It then assigns a class label to the new example based on a majority vote between those <strong>k</strong> training examples. This means if <strong>k</strong> is equal to 1, the class label will be assigned based on the nearest neighbour. However if K is equal to 3, the algorithm will select the three closest data points to each case and classify it based on a majority vote based on the classes that those three adjacent points hold.</p>
+<p><code class="language-plaintext highlighter-rouge">K-nn</code> is a non-parametric technique that stores all available cases and classifies new cases based on a similiarty measure (distance function). Therefore when classifying an unseen dataset using a trained <code class="language-plaintext highlighter-rouge">K-nn</code> algorithm, it looks through the training data and finds the <strong>k</strong> training examples that are closest to the new example. It then assigns a class label to the new example based on a majority vote between those <strong>k</strong> training examples. This means if <strong>k</strong> is equal to 1, the class label will be assigned based on the nearest neighbour. However if K is equal to 3, the algorithm will select the three closest data points to each case and classify it based on a majority vote based on the classes that those three adjacent points hold.</p>
 
 <center><img src="https://cambridgecoding.files.wordpress.com/2016/01/knn2.jpg" alt="Img" style="width: 800px;" /></center>
 <center>Diagram source: <a href="https://cambridgecoding.wordpress.com" target="_blank">Cambridge Coding</a></center>
@@ -341,7 +419,7 @@ Regarding <strong>k</strong>, generally in binary cases it is best to pick an od
   </span><span class="n">theme</span><span class="p">(</span><span class="n">legend.position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="m">0.2</span><span class="p">,</span><span class="w"> </span><span class="m">0.8</span><span class="p">)))</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Note that putting your entire ggplot code in brackets () creates the graph and then shows it in the plot viewer. If you don’t have the brackets, you’ve only created the object, but haven’t visualized it. You would then have to call the object such that it will be displayed by just typing <code class="highlighter-rouge">barplot</code> after you’ve created the “barplot” object.</p>
+<p>Note that putting your entire ggplot code in brackets () creates the graph and then shows it in the plot viewer. If you don’t have the brackets, you’ve only created the object, but haven’t visualized it. You would then have to call the object such that it will be displayed by just typing <code class="language-plaintext highlighter-rouge">barplot</code> after you’ve created the “barplot” object.</p>
 
 <p><img src="/assets/images/iris_plot1.png" alt="" /><br />
 <img src="/assets/images/iris_plot2.png" alt="" /></p>
@@ -376,7 +454,7 @@ Regarding <strong>k</strong>, generally in binary cases it is best to pick an od
 
 <p>Now that our data is normalised, we are going to randomly generate our training and test samples and their respective labels/classes.</p>
 
-<p>This is done using the <code class="highlighter-rouge">sample</code> function which generates a random sample of the specified size from the data set or elements. Also note that before calling <code class="highlighter-rouge">sample</code> we also call the <code class="highlighter-rouge">set.seed</code> function. This ensures that we always generate the same random data sample, as otherwise each time we would run this code a completely new random sequence would be generated. More information on that <a href="http://www.datasciencemadesimple.com/sample-function-in-r/">here</a>.</p>
+<p>This is done using the <code class="language-plaintext highlighter-rouge">sample</code> function which generates a random sample of the specified size from the data set or elements. Also note that before calling <code class="language-plaintext highlighter-rouge">sample</code> we also call the <code class="language-plaintext highlighter-rouge">set.seed</code> function. This ensures that we always generate the same random data sample, as otherwise each time we would run this code a completely new random sequence would be generated. More information on that <a href="http://www.datasciencemadesimple.com/sample-function-in-r/">here</a>.</p>
 
 <div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># Generating seed</span><span class="w">
 </span><span class="n">set.seed</span><span class="p">(</span><span class="m">1234</span><span class="p">)</span><span class="w">
@@ -400,7 +478,7 @@ Regarding <strong>k</strong>, generally in binary cases it is best to pick an od
 </span><span class="n">irisTest.labels</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">iris</span><span class="p">[</span><span class="n">datasample</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="m">2</span><span class="p">,</span><span class="w"> </span><span class="m">5</span><span class="p">]</span><span class="w">
 </span></code></pre></div></div>
 
-<p>It’s now time to build our classifier! For this we will use the <code class="highlighter-rouge">knn</code> function from the <code class="highlighter-rouge">class</code> package. We will pass the function the following parameters:</p>
+<p>It’s now time to build our classifier! For this we will use the <code class="language-plaintext highlighter-rouge">knn</code> function from the <code class="language-plaintext highlighter-rouge">class</code> package. We will pass the function the following parameters:</p>
 
 <ul>
   <li>Our normalised training dataset</li>
@@ -430,7 +508,7 @@ Regarding <strong>k</strong>, generally in binary cases it is best to pick an od
 </span><span class="nf">names</span><span class="p">(</span><span class="n">class.comparison</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="nf">c</span><span class="p">(</span><span class="s2">"Predicted Species"</span><span class="p">,</span><span class="w"> </span><span class="s2">"Observed Species"</span><span class="p">)</span><span class="w">
 </span></code></pre></div></div>
 
-<p>Let’s have a look at how our model did by inspecting the <code class="highlighter-rouge">class.comparison</code> table to see if our predicted species align with our observed species.</p>
+<p>Let’s have a look at how our model did by inspecting the <code class="language-plaintext highlighter-rouge">class.comparison</code> table to see if our predicted species align with our observed species.</p>
 
 <div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># inspecting our results table</span><span class="w">
 </span><span class="n">class.comparison</span><span class="w">
@@ -441,7 +519,7 @@ Regarding <strong>k</strong>, generally in binary cases it is best to pick an od
 <div class="language-r highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">CrossTable</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">irisTest.labels</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iris.knn</span><span class="p">,</span><span class="w"> </span><span class="n">prop.chisq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">FALSE</span><span class="p">)</span><span class="w">
 </span></code></pre></div></div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                | iris.knn
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                | iris.knn
 irisTest.labels |     setosa | versicolor |  virginica |  Row Total |
 ----------------|------------|------------|------------|------------|
          setosa |         12 |          0 |          0 |         12 |
@@ -463,11 +541,11 @@ irisTest.labels |     setosa | versicolor |  virginica |  Row Total |
                 |      0.300 |      0.350 |      0.350 |            |
 ----------------|------------|------------|------------|------------|
 </code></pre></div></div>
-<p>To evaluate our algorithm’s performance we can check if there are any discrepancies between our <code class="highlighter-rouge">iris.knn</code> model predictions and the actual <code class="highlighter-rouge">irisTest.labels</code>. To do this you can first check the total number of predicted classes per category in the last row under column total.</p>
+<p>To evaluate our algorithm’s performance we can check if there are any discrepancies between our <code class="language-plaintext highlighter-rouge">iris.knn</code> model predictions and the actual <code class="language-plaintext highlighter-rouge">irisTest.labels</code>. To do this you can first check the total number of predicted classes per category in the last row under column total.</p>
 
 <p>These can then be compared against the actual classes on the right under row total. Our knn model predicted 12 setosa, 14 versicolor and 14 virginica. However when comparing this to our actual data there were 12 setosa, 12 versicolor and 16 virginca species in our test dataset.</p>
 
-<p>Overall we can see that our algorithm was able to almost predict all species classes correctly, except for a case where two samples where falsely classified as versicolor when in fact they belonged to virginica. To improve the model you could now experiment with using different <code class="highlighter-rouge">k</code> values to see if this impacts your model results in any way.</p>
+<p>Overall we can see that our algorithm was able to almost predict all species classes correctly, except for a case where two samples where falsely classified as versicolor when in fact they belonged to virginica. To improve the model you could now experiment with using different <code class="language-plaintext highlighter-rouge">k</code> values to see if this impacts your model results in any way.</p>
 
 <p>Finally now that your model is trained you could go ahead and try to implement your algorithm on the entire iris dataset to see how effective it is!</p>
 
@@ -476,7 +554,7 @@ irisTest.labels |     setosa | versicolor |  virginica |  Row Total |
 <p>In this tutorial we have now covered the following:</p>
 
 <ul>
-  <li>the very basics of machine learning in <code class="highlighter-rouge">R</code></li>
+  <li>the very basics of machine learning in <code class="language-plaintext highlighter-rouge">R</code></li>
   <li>implementing a k-nearest neighbour classification algorithm</li>
   <li>building our own training and test datasets</li>
   <li>testing and evaluating our knn algorithm using cross-tabulation</li>
@@ -484,70 +562,61 @@ irisTest.labels |     setosa | versicolor |  virginica |  Row Total |
 
 <p>However there is still a whole world to explore. For those interested in learning more have a look at this <a href="https://daviddalpiaz.github.io/r4sl/index.html">freely available book</a> on machine learning in R.</p>
 
+        
+      </section>
 
-<ul class="taxonomy__index">
-  
-  
-    <li>
-      <a href="#2019">
-        <strong>2019</strong> <span class="taxonomy__count">1</span>
-      </a>
-    </li>
-  
-    <li>
-      <a href="#2018">
-        <strong>2018</strong> <span class="taxonomy__count">2</span>
-      </a>
-    </li>
-  
-</ul>
-
-
-
-  <section id="2019" class="taxonomy__section">
-    <h2 class="archive__subtitle">2019</h2>
-    <div class="entries-list">
-      
+      <footer class="page__meta">
+        
         
 
 
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2019-11-25T00:00:00+01:00">November 25, 2019</time></p>
+        
+      </footer>
 
-<div class="list__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
+      <section class="page__share">
+  
+    <h4 class="page__share-title">Share on</h4>
+  
+
+  <a href="https://twitter.com/intent/tweet?text=Introduction+to+machine+learning+in+R%20http%3A%2F%2Flocalhost%3A4000%2Fintro-machine-learning%2F" class="btn btn--twitter" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Twitter"><i class="fab fa-fw fa-twitter" aria-hidden="true"></i><span> Twitter</span></a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2Fintro-machine-learning%2F" class="btn btn--facebook" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Facebook"><i class="fab fa-fw fa-facebook" aria-hidden="true"></i><span> Facebook</span></a>
+
+  <a href="https://plus.google.com/share?url=http%3A%2F%2Flocalhost%3A4000%2Fintro-machine-learning%2F" class="btn btn--google-plus" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on Google Plus"><i class="fab fa-fw fa-google-plus" aria-hidden="true"></i><span> Google+</span></a>
+
+  <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2Fintro-machine-learning%2F" class="btn btn--linkedin" onclick="window.open(this.href, 'window', 'left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" title="Share on LinkedIn"><i class="fab fa-fw fa-linkedin" aria-hidden="true"></i><span> LinkedIn</span></a>
+</section>
+
+
       
-        <a href="/intro-machine-learning/" rel="permalink">Introduction to machine learning in R
-</a>
-      
-    </h2>
+  <nav class="pagination">
     
-      <p class="page__meta"><i class="far fa-clock" aria-hidden="true"></i> 
-
-
-
-
-  10 minute read
-</p>
+      <a href="/qgis-intro-to-3d-models/" class="pagination--pager" title="Generating a 3D city model in QGIS
+">Previous</a>
     
-    <p class="archive__item-excerpt" itemprop="description">What is Machine Learning?
-Today machine learning is everywhere. From the content delivered to you on your Facebook newsfeed to the spam emails being filtered...</p>
-  </article>
-</div>
-      
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
     </div>
-    <a href="#page-title" class="back-to-top">Back to top &uarr;</a>
-  </section>
 
-  <section id="2018" class="taxonomy__section">
-    <h2 class="archive__subtitle">2018</h2>
-    <div class="entries-list">
-      
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You may also enjoy</h4>
+      <div class="grid__wrapper">
         
+          
 
 
 
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
     
     <h2 class="archive__item-title" itemprop="headline">
@@ -568,12 +637,12 @@ Today machine learning is everywhere. From the content delivered to you on your 
     <p class="archive__item-excerpt" itemprop="description">QGIS is an excellent open-source spatial analysis tool that packs a real punch! Not only can you access a host of spatial algorithms to analyse your data, bu...</p>
   </article>
 </div>
-      
         
+          
 
 
 
-<div class="list__item">
+<div class="grid__item">
   <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
     
     <h2 class="archive__item-title" itemprop="headline">
@@ -594,13 +663,11 @@ Today machine learning is everywhere. From the content delivered to you on your 
     <p class="archive__item-excerpt" itemprop="description">Setting up your first database can be daunting - however it is likely one of the most useful and rewarding things you can do for your project. In this tutori...</p>
   </article>
 </div>
-      
+        
+      </div>
     </div>
-    <a href="#page-title" class="back-to-top">Back to top &uarr;</a>
-  </section>
-
-
-  </div>
+  
+  
 </div>
     </div>
 
@@ -623,28 +690,12 @@ Today machine learning is everywhere. From the content delivered to you on your 
     
 
     
-      
-        
-      
-        
-      
-        
-          <li><a href="https://github.com/samkellerhals" rel="nofollow noopener noreferrer"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
-        
-      
-        
-      
-        
-      
-        
-      
-    
 
     <li><a href="/feed.xml"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
   </ul>
 </div>
 
-<div class="page__footer-copyright">&copy; 2019 Sam Kellerhals. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+<div class="page__footer-copyright">&copy; 2021 Samuel Kellerhals. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
 
       </footer>
     </div>
@@ -666,7 +717,7 @@ Today machine learning is everywhere. From the content delivered to you on your 
     
   <script>
     var disqus_config = function () {
-      this.page.url = "https://samkellerhals.github.io//intro-machine-learning/";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.url = "http://localhost:4000/intro-machine-learning/";  // Replace PAGE_URL with your page's canonical URL variable
       this.page.identifier = "/intro-machine-learning"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() { // DON'T EDIT BELOW THIS LINE

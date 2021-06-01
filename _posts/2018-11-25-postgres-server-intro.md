@@ -1,8 +1,7 @@
 ---
 title: PostgreSQL spatial database set-up and remote server access
-author: Samuel Kellerhals
 date: November 25, 2018
-layout: posts
+layout: single
 permalink: /intro-to-spatial-databases/
 ---
 

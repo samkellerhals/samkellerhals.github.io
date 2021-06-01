@@ -16,10 +16,10 @@ minimal_mistakes_skin    : "contrast" # "air", "aqua", "contrast", "dark", "dirt
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Data Science For Good"
+title                    : ""
 title_separator          : "-"
-name                     : "Sam Kellerhals"
-description              : "Coding for Good."
+name                     : "Samuel Kellerhals"
+description              : "Personal Blog"
 url                      : "https://samkellerhals.github.io/"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "samkellerhals/samkellerhals.github.io"
@@ -103,52 +103,52 @@ analytics:
 
 # Site Author
 author:
-  name             : "Sam Kellerhals"
+  name             : "Samuel Kellerhals"
   avatar           : "/assets/images/sam_avatar.png"
-  bio              : "Data science and machine learning for a happy planet."
-  location         : "Oxford, United Kingdom"
-  email            : "hello@gooddatascience.com"
+  bio              : "Software Engineer and Cleantech Enthusiast"
+  location         : "Amsterdam, Netherlands"
+  #email            : "hello@gooddatascience.com"
   links:
-    - label: "Email"
+    - label: "Linkedin"
       icon: "fas fa-fw fa-envelope-square"
-      # url: mailto:your.name@email.com
-    - label: "Website"
-      icon: "fas fa-fw fa-link"
-      url: "https://elpissolar.com"
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      # url: "https://twitter.com/"
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook-square"
-      # url: "https://facebook.com/"
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/samkellerhals"
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      # url: "https://instagram.com/"
+      url: https://www.linkedin.com/in/samuel-kellerhals/
+    # - label: "Website"
+    #   icon: "fas fa-fw fa-link"
+    #   url: "https://elpissolar.com"
+    # - label: "Twitter"
+    #   icon: "fab fa-fw fa-twitter-square"
+    #   # url: "https://twitter.com/"
+    # - label: "Facebook"
+    #   icon: "fab fa-fw fa-facebook-square"
+    #   # url: "https://facebook.com/"
+    # - label: "GitHub"
+    #   icon: "fab fa-fw fa-github"
+    #   url: "https://github.com/samkellerhals"
+    # - label: "Instagram"
+    #   icon: "fab fa-fw fa-instagram"
+    #   # url: "https://instagram.com/"
 
-# Site Footer
-footer:
-  links:
-    - label: "Twitter"
-      icon: "fab fa-fw fa-twitter-square"
-      # url:
-    - label: "Facebook"
-      icon: "fab fa-fw fa-facebook-square"
-      # url:
-    - label: "GitHub"
-      icon: "fab fa-fw fa-github"
-      url: "https://github.com/samkellerhals"
-    - label: "GitLab"
-      icon: "fab fa-fw fa-gitlab"
-      # url:
-    - label: "Bitbucket"
-      icon: "fab fa-fw fa-bitbucket"
-      # url:
-    - label: "Instagram"
-      icon: "fab fa-fw fa-instagram"
-      # url:
+# # Site Footer
+# #footer:
+#   links:
+#     - label: "Twitter"
+#       icon: "fab fa-fw fa-twitter-square"
+#       # url:
+#     - label: "Facebook"
+#       icon: "fab fa-fw fa-facebook-square"
+#       # url:
+#     - label: "GitHub"
+#       icon: "fab fa-fw fa-github"
+#       url: "https://github.com/samkellerhals"
+#     - label: "GitLab"
+#       icon: "fab fa-fw fa-gitlab"
+#       # url:
+#     - label: "Bitbucket"
+#       icon: "fab fa-fw fa-bitbucket"
+#       # url:
+#     - label: "Instagram"
+#       icon: "fab fa-fw fa-instagram"
+#       # url:
 
 
 # Reading Files
@@ -290,6 +290,11 @@ defaults:
       comments: true
       share: true
       related: true
+      toc: true
+      toc_sticky: true
+      toc_label: "Table of contents"
+      author_profile: true
+      classes: wide
   
 
 collections:
